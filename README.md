@@ -1,2 +1,2 @@
 # checklist
-Yet another checklist implementation. Django.
+ Yet another To-Do checklist implementation. Django. 
