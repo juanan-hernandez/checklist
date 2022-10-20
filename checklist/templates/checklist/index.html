@@ -1,10 +1,29 @@
-<ul>
-    {% for item in checklist_items %}
-        {% if item.item_completed %}
+<body style="text-align: center">
+    <h1>
+        To-Do Checklist
+    </h1>
+    <div>
+        <form action="/checklist/item/" method="post" style="border: lightgray; border-style: solid; width: 300px;  margin-left: auto; margin-right: auto;">
+            {% csrf_token %}
+            Create item
+            </br>
+            </br>
+            <label>Item:</label>
+            <input name="description" type="text" minlength="5" maxlength="300" required/>
+            </br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <ul>
+            {% for item in checklist_items %}
+            {% if item.item_completed %}
             <input type="checkbox" checked'>
-        {% else %}
+            {% else %}
             <input type="checkbox" onclick='assignmentFinish(this,"{{assignment.id}}")'>
-        {% endif %}
-        <label>{{ item.description }}</label></br>
-    {% endfor %}
-</ul>
+            {% endif %}
+            <label>{{ item.description }}</label></br>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
