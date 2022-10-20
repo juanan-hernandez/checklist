@@ -1,0 +1,10 @@
+<ul>
+    {% for item in checklist_items %}
+        {% if item.item_completed %}
+            <input type="checkbox" checked'>
+        {% else %}
+            <input type="checkbox" onclick='assignmentFinish(this,"{{assignment.id}}")'>
+        {% endif %}
+        <label>{{ item.description }}</label></br>
+    {% endfor %}
+</ul>
